@@ -23,7 +23,7 @@ module.exports.handler = async (event, context) => {
 		return {
 			statusCode: 200,
 			headers: {
-				// Because the frontend and the API is on different domains we need to add this CORS header
+				// Because the frontend and the API are on different domains we need to add this CORS header
 				"Access-Control-Allow-Origin": "*",
 			},
 			body: signedUrl,
