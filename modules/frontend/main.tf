@@ -1,8 +1,8 @@
 resource "aws_s3_bucket" "frontend_bucket" {
-	force_destroy = "true"
-	website {
-		index_document = "index.html"
-	}
+  force_destroy = "true"
+  website {
+    index_document = "index.html"
+  }
 }
 
 resource "aws_s3_bucket_policy" "default" {
@@ -33,18 +33,18 @@ data "template_file" "index" {
 }
 
 resource "aws_s3_bucket_object" "frontend_object_index_html" {
-  key    = "index.html"
-	content = data.template_file.index.rendered
-  bucket = aws_s3_bucket.frontend_bucket.bucket
-  etag = md5(data.template_file.index.rendered)
-	content_type = "text/html"
+  key          = "index.html"
+  content      = data.template_file.index.rendered
+  bucket       = aws_s3_bucket.frontend_bucket.bucket
+  etag         = md5(data.template_file.index.rendered)
+  content_type = "text/html"
 }
 
 resource "aws_s3_bucket_object" "frontend_object_main_js" {
-  key    = "main.js"
-  source = "${path.module}/main.js"
-  bucket = aws_s3_bucket.frontend_bucket.bucket
-  etag = filemd5("${path.module}/main.js")
-	content_type = "application/javascript"
+  key          = "main.js"
+  source       = "${path.module}/main.js"
+  bucket       = aws_s3_bucket.frontend_bucket.bucket
+  etag         = filemd5("${path.module}/main.js")
+  content_type = "application/javascript"
 }
 

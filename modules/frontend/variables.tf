@@ -1,3 +1,3 @@
 variable "backend_url" {
-	type = string
+  type = string
 }
