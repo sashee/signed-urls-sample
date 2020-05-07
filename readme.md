@@ -38,3 +38,5 @@ This creates a frontend bucket with website configuration, and deploys the index
 ### [modules/frontend/index.html](modules/frontend/index.html), [main.js](modules/frontend/main.js)
 
 The frontend code is implemented in these files.
+
+The books are from [Project Gutenberg](https://www.gutenberg.org/).
